@@ -1,7 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import View from './View.jsx'
+
+const App = () => {
+  return (
+    <View />
+  )
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
