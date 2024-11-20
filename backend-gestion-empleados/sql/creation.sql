@@ -7,4 +7,18 @@ CREATE TABLE IF NOT EXISTS users (
     email TEXT NOT NULL UNIQUE,
     username TEXT NOT NULL,
     password TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS employees (
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    full_name TEXT NOT NULL UNIQUE,
+    department TEXT NOT NULL UNIQUE,
+    shift TEXT,
+    contract_type TEXT
+);
+
+CREATE TABLE IF NOT EXISTS departments (
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name TEXT NOT NULL UNIQUE,
+    
 )
