@@ -7,7 +7,7 @@ module.exports = {
 
     const match = WHITELIST.find((domain) => origin.includes(domain));
 
-    match ? callback(null, true) : callback(errors["cors"]);
+    match ? callback(null, true) : callback(error["cors"]);
   },
   credentials: true,
 };
