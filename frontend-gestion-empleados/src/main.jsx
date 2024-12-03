@@ -1,10 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import View from './View.jsx'
+import { Switch, Route, Redirect } from 'wouter'
+import View from './Components/View/View.jsx'
+import Guard from './Components/Guard/index.jsx'
+import Provider from './context/Provider.jsx'
 
 const App = () => {
   return (
-    <View />
+    <Provider>
+      <Switch>
+
+        <Route path='/'>
+          <Guard component={View} />
+        </Route>
+        
+
+      </Switch>
+    </Provider>
   )
 }
 
