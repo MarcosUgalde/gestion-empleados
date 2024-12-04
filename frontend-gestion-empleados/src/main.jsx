@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'wouter'
 import View from './Components/View/View.jsx'
 import Guard from './Components/Guard/index.jsx'
 import Provider from './context/Provider.jsx'
-import Auth from './pages/Login/index.jsx'
+import Auth from './pages/Auth/index.jsx'
 
 const App = () => {
   return (
