@@ -4,17 +4,17 @@ import { Switch, Route, Redirect } from 'wouter'
 import View from './Components/View/View.jsx'
 import Guard from './Components/Guard/index.jsx'
 import Provider from './context/Provider.jsx'
+import Login from './pages/Login/index.jsx'
 
 const App = () => {
   return (
     <Provider>
       <Switch>
-
+      <Route path='/login' component={Login} />
         <Route path='/'>
           <Guard component={View} />
         </Route>
-        
-
+        <Redirect to='/login'/>
       </Switch>
     </Provider>
   )
