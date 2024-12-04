@@ -1,3 +1,4 @@
+import Styled from './styles'
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import { useLocation } from "wouter";
@@ -6,7 +7,7 @@ import { useEffect } from "react";
 import { login } from "../../misc/templates";
 import { auth } from "../../services";
 
-function Login() {
+function Login({ isVisible, toggle}) {
   const { register, formState, handleSubmit } = useForm();
   const [, setLocation] = useLocation();
   const { data } = useUser();
@@ -34,40 +35,30 @@ function Login() {
   const { errors } = login;
 
   return (
-    <>
-      <form onSubmit={handleSubmit(handleForm)}>
+    <Styled.Body>
+        {isVisible && 
+    <Styled.Form onSubmit={handleSubmit(handleForm)}>
         <h1>Login</h1>
-        <section>
-          <label htmlFor="email">Insert email</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="example@gmail.com"
-            {...register("email", { required: true })}
-          />
-          <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
-        </section>
-        <section>
-          <label htmlFor="password">Insert password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="*********"
-            {...register("password", { required: true, minLength: 4 })}
-          />
-          <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
-        </section>
-        <input type="submit" />
-      <footer>
+        <Styled.Field>
+            <label htmlFor="email">Insert email</label>
+            <Styled.Input type="text" name="email" id="email" placeholder="example@gmail.com" {...register('email', {required: true})} />
+            <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
+        </Styled.Field>
+        <Styled.Field>
+            <label htmlFor="password">Insert password</label>
+            <Styled.Input type="password" name="password" id="password" placeholder="*********" {...register('password', {required: true, minLength: 4})} />
+            <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
+        </Styled.Field>
+        <Styled.Input type="submit" />
+    <Styled.Footer>
         <p>¿Todavía no tienes cuenta?</p>
-        <section>
-          <a href="/register">Registrate aquí</a>
-        </section>
-      </footer>
-      </form>
-    </>
+        <Styled.Signup>
+            <Styled.Anchor onClick={toggle}>Toggle Component</Styled.Anchor>
+        </Styled.Signup>
+    </Styled.Footer>
+    </Styled.Form>
+        }
+</Styled.Body>
   );
 }
 
