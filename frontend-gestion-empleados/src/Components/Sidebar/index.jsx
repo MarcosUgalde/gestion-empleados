@@ -6,6 +6,7 @@ const Sidevar = () => {
             <ul>
                 <li>Item 1</li>
                 <li>Item 2</li>
+                <li><a href="/new-employee">Create employee</a></li>
             </ul>
         </Styled.Aside>
     )
