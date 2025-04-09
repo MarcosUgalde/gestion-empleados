@@ -7,3 +7,9 @@ export const createUser = (client) => async (params) => {
     console.info("creat3e employee error: ", error.message);
   }
 };
+
+export const getAllEmployees = (client) => async () => {
+  const { data: content } = await client.get("/employees/all");
+  console.log(content);
+  return content;
+};

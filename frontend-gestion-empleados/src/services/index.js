@@ -1,7 +1,7 @@
 import axios from "axios";
 import { register, logout, signin } from "./auth";
 import { info } from "./user";
-import { createUser } from "./employees";
+import { createUser, getAllEmployees } from "./employees";
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -20,6 +20,7 @@ const user = {
 
 const employees = {
   create: createUser(client),
+  getAll: getAllEmployees,
 };
 
 export { auth, user, employees };
