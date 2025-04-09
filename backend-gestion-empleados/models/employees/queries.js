@@ -13,6 +13,11 @@ const createEmployee = (
     )
 `;
 
+const selectAllEmployees = () => sql.unsafe`
+    SELECT * FROM employees
+`;
+
 module.exports = {
   createEmployee,
+  selectAllEmployees,
 };
