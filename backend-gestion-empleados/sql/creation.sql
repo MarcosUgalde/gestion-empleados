@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS employees (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     full_name TEXT NOT NULL UNIQUE,
-    department TEXT NOT NULL UNIQUE,
+    department TEXT NOT NULL,
     shift TEXT,
     contract_type TEXT
 );
