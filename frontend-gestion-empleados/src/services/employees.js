@@ -10,6 +10,6 @@ export const createUser = (client) => async (params) => {
 
 export const getAllEmployees = (client) => async () => {
   const { data: content } = await client.get("/employees/all");
-  console.log(content);
+  console.log("content: ", content);
   return content;
 };

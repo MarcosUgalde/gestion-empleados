@@ -20,7 +20,7 @@ const user = {
 
 const employees = {
   create: createUser(client),
-  getAll: getAllEmployees,
+  getAll: getAllEmployees(client),
 };
 
 export { auth, user, employees };
