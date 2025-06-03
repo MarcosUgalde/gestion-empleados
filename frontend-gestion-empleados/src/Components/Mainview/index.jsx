@@ -1,4 +1,11 @@
+import { useAllEmployees } from "../../hooks"
+
 const Mainview = () => {
+
+    const allEmployees = useAllEmployees();
+
+    console.log('Employees:', allEmployees?.data?.content);
+
     return (
         <main>
             <table>
@@ -6,6 +13,16 @@ const Mainview = () => {
                 <th>Departamento</th>
                 <th>Horario</th>
                 <th>Tipo jornada</th>
+                {allEmployees?.data?.content?.map((employee) => {
+                    return (
+                        <tr>
+                            <td>{employee.full_name}</td>
+                            <td>{employee.department}</td>
+                            <td>{employee.shift}</td>
+                            <td>{employee.contract_type}</td>
+                        </tr>
+                    )
+                })}
                 <tr>
                     <td>Fulanito Martínez Ortega</td>
                     <td>Informática</td>
