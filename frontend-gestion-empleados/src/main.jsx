@@ -6,6 +6,7 @@ import Guard from './Components/Guard/index.jsx'
 import Provider from './context/Provider.jsx'
 import Auth from './pages/Auth/index.jsx'
 import Createemployee from './Components/Createemployee/index.jsx'
+import Employeeview from './pages/Employeeview/index.jsx'
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
         </Route>
         <Route path='/new-employee' >
           <Guard component={Createemployee} />
+        </Route>
+        <Route path='/employee/:id'>
+          <Guard component={Employeeview} />
         </Route>
         <Redirect to='/login'/>
       </Switch>

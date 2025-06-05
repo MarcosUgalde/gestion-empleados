@@ -17,6 +17,7 @@ export const getAllEmployees = (client) => async () => {
 export const getEmployee = (client) => async (id) => {
   try {
     const { data: response } = await client.get(`employees/${id}`);
+    console.log("service response: ", response);
     return response;
   } catch (error) {
     console.info("Employee info error: ", error.message);
