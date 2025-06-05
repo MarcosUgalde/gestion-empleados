@@ -1,14 +1,14 @@
 import { useAllEmployees } from "../../hooks"
+import Styled from './styles'
 
 const Mainview = () => {
 
     const allEmployees = useAllEmployees();
 
-    console.log('Employees:', allEmployees?.data?.content);
-
     return (
         <main>
-            <table>
+            <h1>Empleados</h1>
+            <Styled.Table>
                 <th>Nombre completo</th>
                 <th>Departamento</th>
                 <th>Horario</th>
@@ -16,20 +16,14 @@ const Mainview = () => {
                 {allEmployees?.data?.content?.map((employee) => {
                     return (
                         <tr>
-                            <td>{employee.full_name}</td>
-                            <td>{employee.department}</td>
-                            <td>{employee.shift}</td>
-                            <td>{employee.contract_type}</td>
+                            <Styled.Td>{employee.full_name}</Styled.Td>
+                            <Styled.Td>{employee.department}</Styled.Td>
+                            <Styled.Td>{employee.shift}</Styled.Td>
+                            <Styled.Td>{employee.contract_type}</Styled.Td>
                         </tr>
                     )
                 })}
-                <tr>
-                    <td>Fulanito Martínez Ortega</td>
-                    <td>Informática</td>
-                    <td>Mañana</td>
-                    <td>Completa</td>
-                </tr>
-            </table>
+            </Styled.Table>
         </main>
     )
 }
