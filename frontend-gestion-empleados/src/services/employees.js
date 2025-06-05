@@ -13,3 +13,13 @@ export const getAllEmployees = (client) => async () => {
   console.log("content: ", content);
   return content;
 };
+
+export const getEmployee = (client) => async (id) => {
+  try {
+    const { data: response } = await client.get(`employees/${id}`);
+    return response;
+  } catch (error) {
+    console.info("Employee info error: ", error.message);
+    return null;
+  }
+};
