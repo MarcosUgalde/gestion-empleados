@@ -17,7 +17,13 @@ const selectAllEmployees = () => sql.unsafe`
     SELECT * FROM employees
 `;
 
+const selectEmployee = (id) => sql.unsafe`
+  SELECT * FROM employees
+  WHERE id = ${id}
+`;
+
 module.exports = {
   createEmployee,
   selectAllEmployees,
+  selectEmployee,
 };

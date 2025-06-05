@@ -5,6 +5,7 @@ const employeesControllers = require("../controllers/employees");
 
 module.exports = (db) => {
   router.get("/all", authorizer(), employeesControllers.getAllEmployees(db));
+  router.get("/:id", authorizer(), employeesControllers.getEmployee(db));
   router.post("/new", authorizer(), employeesControllers.createEmployee(db));
 
   return router;

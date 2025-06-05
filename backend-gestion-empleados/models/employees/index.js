@@ -1,4 +1,8 @@
-const { createEmployee, selectAllEmployees } = require("./queries");
+const {
+  createEmployee,
+  selectAllEmployees,
+  selectEmployee,
+} = require("./queries");
 
 const insertEmployee =
   (db) => async (full_name, department, shift, contract_type) => {
@@ -34,7 +38,24 @@ const getAllEmployees = (db) => async () => {
   }
 };
 
+const getEmployee = (db) => async (id) => {
+  try {
+    const employee = await db.query(selectEmployee(id));
+    return {
+      ok: true,
+      content: employee,
+    };
+  } catch (error) {
+    console.info("Select one employee error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   insertEmployee,
   getAllEmployees,
+  getEmployee,
 };
