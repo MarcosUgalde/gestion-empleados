@@ -22,8 +22,15 @@ const selectEmployee = (id) => sql.unsafe`
   WHERE id = ${id}
 `;
 
+const updateEmployee = (id, department, shift, contract_type) => sql.unsafe`
+  UPDATE employees
+  SET department = ${department}, shift = ${shift}, contract_type = ${contract_type}
+  WHERE id = ${id}
+`;
+
 module.exports = {
   createEmployee,
   selectAllEmployees,
   selectEmployee,
+  updateEmployee,
 };

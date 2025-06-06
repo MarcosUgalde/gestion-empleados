@@ -2,6 +2,7 @@ const {
   createEmployee,
   selectAllEmployees,
   selectEmployee,
+  updateEmployee,
 } = require("./queries");
 
 const insertEmployee =
@@ -54,8 +55,27 @@ const getEmployee = (db) => async (id) => {
   }
 };
 
+const editEmployee = (db) => async (id, department, shift, contract_type) => {
+  try {
+    const response = await db.query(
+      updateEmployee(id, department, shift, contract_type)
+    );
+    return {
+      ok: true,
+      data: response.rows,
+    };
+  } catch (error) {
+    console.info("Update employee error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   insertEmployee,
   getAllEmployees,
   getEmployee,
+  editEmployee,
 };
