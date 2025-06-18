@@ -4,3 +4,4 @@ export { useNewEmployee } from "./useNewEmployee";
 export { useAllEmployees } from "./useAllEmployees";
 export { useEmployee } from "./useEmployee";
 export { useId } from "./useId";
+export { useUpdate } from "./useUpdate";

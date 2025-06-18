@@ -24,3 +24,14 @@ export const getEmployee = (client) => async (id) => {
     return null;
   }
 };
+
+export const updateEmployee = (client) => async (params) => {
+  try {
+    const { data } = await client.put(`/employee/update/${params.id}`);
+    console.info("Employee edition completed: ", data);
+    return data;
+  } catch (error) {
+    console.info("Update employee service error: ", error.message);
+    return { success: false };
+  }
+};
